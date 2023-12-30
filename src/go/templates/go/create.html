@@ -1,0 +1,36 @@
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    table td.shrink {
+        white-space: nowrap
+    }
+    table td.expand {
+        width: 99%
+    }
+    table td.expand input {
+        width: 100%
+    }
+</style>
+
+<form action="{% url 'manage' short_url %}" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td class="shrink"><label for="short_url">Short name:</label></td>
+            <td class="expand"><input type="text" id="short_url" name="short_url" value="{{ short_url }}" required></td>
+        </tr>
+        <tr>
+            <td class="shrink"><label for="url">URL:</label></td>
+            <td class="expand"><input type="url" id="original_url" name="original_url" value="{{ original_url }}" required></td>
+        </tr>
+        <tr>
+            <td class="shrink"><label for="hit_count">Hit count:</label></td>
+            <td class="expand"><span>{{ hit_count }}</span></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Create GoLink"></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=58.0.0", "wheel>=0.37.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "golinks"
+version = "0.1.0"
+description = "Simple golink server"
+dependencies = ["Django~=5.0"]
+
+[project.optional-dependencies]
+dev = ["black", "isort", "mypy", "tox", "isort", "django-stubs"]
+
+[project.scripts]
+"manage" = "manage:main"
